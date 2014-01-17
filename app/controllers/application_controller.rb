@@ -14,11 +14,19 @@ class ApplicationController < ActionController::Base
   end
 
   def user_admin?
-    return @current_user.role == 2
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if @current_user && @current_user.role == 2
+      return true
+    end
+    return false
   end
 
   def user_content_manager?
-    return @current_user.role == 1
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    if @current_user && @current_user.role == 1
+      return true
+    end
+    return false
   end
 
 end

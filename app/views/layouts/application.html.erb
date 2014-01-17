@@ -9,23 +9,12 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
-      <div class="pull-right">
-        <% if current_user %>
-          Welcome <%= current_user.name %>!
-          <%= link_to "Sign Out", signout_path %>
-        <% else %>
-          <%= link_to "Sign in with Facebook", "/auth/facebook" %>
-        <% end %>
-      </div>
-       <h1>HotSpot</h1>
-       <%= render 'layouts/messages' %>
-       <div class="container">
-        <%= yield %>
-       </div>
-    </main>
+  <div class="container">
+    <%= render 'layouts/navigation' %>
+    <h1>HotSpot</h1>
+    <%= render 'layouts/messages' %>
+    <%= yield %>
+   </div>
+
   </body>
 </html>
