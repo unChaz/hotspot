@@ -10,3 +10,5 @@ bundle install
 rake db:migrate
 
 rails s
+
+Go to localhost:3000
