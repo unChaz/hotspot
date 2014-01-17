@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Hotspot" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Hotspot" %>">
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+      <div class="pull-right">
+        <% if current_user %>
+          Welcome <%= current_user.name %>!
+          <%= link_to "Sign Out", signout_path %>
+        <% else %>
+          <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+        <% end %>
+      </div>
+       <h1>HotSpot</h1>
+       <%= render 'layouts/messages' %>
+       <div class="container">
+        <%= yield %>
+       </div>
+    </main>
+  </body>
+</html>
