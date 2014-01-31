@@ -8,18 +8,22 @@ class AdministrationController < ApplicationController
   end
 
   def setrole
-    user = User.find_by_uid params[:id]
-    begin
-      role = params[:role].to_i
-      if role < 2 || role < 0
-        redirect_to users_url, :alert => "User update failed! Role must be between 0 and 2 (given: " + role.to_s + ")"
-      else
-        user.set_role(role)
-        user.save
-        redirect_to users_url, :notice => "User updated!"
+    if user_admin?
+      user = User.find_by_uid params[:id]
+      begin
+        role = params[:role].to_i
+        if role < 2 || role < 0
+          redirect_to users_url, :alert => "User update failed! Role must be between 0 and 2 (given: " + role.to_s + ")"
+        else
+          user.set_role(role)
+          user.save
+          redirect_to users_url, :notice => "User updated!"
+        end
+      rescue
+        redirect_to users_url, :alert => "User update failed!"
       end
-    rescue
-      redirect_to users_url, :alert => "User update failed!"
+    else
+     redirect_to root_url, :alert => "You do not have permission to view this page."
     end
   end
 end
