@@ -1,7 +1,8 @@
 <%# navigation styled for Bootstrap 3.0 %>
 <div class="pull-right">
   <% if user_admin? %>
-    <%= link_to raw('<span class="glyphicon glyphicon-user"></span>'), '/user_management' %>
+    <%= link_to raw('<span class="glyphicon glyphicon-home"></span>'), '/' %>
+    <%= link_to raw('<span class="glyphicon glyphicon-user"></span>'), '/users' %>
     <%= link_to raw('<span class="glyphicon glyphicon-map-marker"></span>'), '/my_hotspots' %>
     <% end %>
 
