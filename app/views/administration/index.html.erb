@@ -1,0 +1,26 @@
+<h1 class='lead'>User Management</h1>
+<table class="table">
+<tr>
+  <td>Name</td>
+  <td>Role</td>
+  <td>Edit</td>
+</tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td>
+      <% if user.is_admin? %>
+        Administrator
+      <% else %>
+        <% if user.is_content_manager? %>
+          Content Manager
+        <% else %>
+          General User
+        <% end %>
+      <% end %>
+    </td>
+    <td>
+    </td>
+  </tr>
+<% end %>
+</table>

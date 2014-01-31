@@ -9,4 +9,12 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def is_admin?
+    return self.role == 2
+  end
+
+  def is_content_manager?
+    return self.role == 1
+  end
 end
