@@ -9,7 +9,7 @@ get "/auth/:provider/callback" => "sessions#create"
 get "/signout" => "sessions#destroy", :as => :signout
 
 #User Administration
-get "/users" => "administration#index"
-get "/users/:id/setrole/:role" => "administration#setrole"
+get "/users" => "administration#index", :as => 'users'
+get "/users/:id/setrole/:role" => "administration#setrole", :as => 'set_role'
 
 end

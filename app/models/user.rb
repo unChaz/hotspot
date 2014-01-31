@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  validates :uid, uniqueness: true
+  
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
@@ -16,5 +18,10 @@ class User < ActiveRecord::Base
 
   def is_content_manager?
     return self.role == 1
+  end
+
+  def set_role role
+    self.role = role
+    self.save
   end
 end

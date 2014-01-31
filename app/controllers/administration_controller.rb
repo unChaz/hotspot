@@ -8,14 +8,18 @@ class AdministrationController < ApplicationController
   end
 
   def setrole
-    user = User.find(params[:id])
-    role = params[:role]
-    if role > 2 || role < 0
-      user.role = role
-      user.save
-      redirect_to root_url, :notice => "User updated!"
-    else
-      redirect_to root_url, :alert => "User update failed!"
+    user = User.find_by_uid params[:id]
+    begin
+      role = params[:role].to_i
+      if role < 2 || role < 0
+        redirect_to users_url, :alert => "User update failed! Role must be between 0 and 2 (given: " + role.to_s + ")"
+      else
+        user.set_role(role)
+        user.save
+        redirect_to users_url, :notice => "User updated!"
+      end
+    rescue
+      redirect_to users_url, :alert => "User update failed!"
     end
   end
 end
