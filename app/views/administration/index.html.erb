@@ -7,7 +7,7 @@
       <td>Name</td>
       <td>Email</td>
       <td>Role</td>
-      <td>Edit</td>
+      <td>Upgrade/Downgrade</td>
     </tr>
     <% @users.each do |user| %>
       <tr>
@@ -19,8 +19,10 @@
               Administrator
             </td>
             <td>
-              <%= link_to "Set Content Manager", set_role_path(:id => user.uid, :role => 1), :class => "btn btn-danger" %>
-              <%= link_to "Set Commenter", set_role_path(:id => user.uid, :role => 0), :class => "btn btn-danger" %>
+              <button class="btn btn-success" disabled="disabled"><span class="glyphicon glyphicon-chevron-up"></span></button>
+              <%= link_to set_role_path(:id => user.uid, :role => 1), :class => "btn btn-danger", data: { confirm: 'Are you sure you want to remove admin priveleges?' } do %>
+                <span class="glyphicon glyphicon-chevron-down"></span>
+              <% end %>
             </td>
           <% else %>
             <% if user.is_content_manager? %>
@@ -28,16 +30,22 @@
                 Content Manager
               </td>
               <td>
-                <%= link_to "Set Admin", set_role_path(:id => user.uid, :role => 2), :class => "btn btn-danger" %>
-                <%= link_to "Set Commenter", set_role_path(:id => user.uid, :role => 0), :class => "btn btn-warning" %>
+                <%= link_to set_role_path(:id => user.uid, :role => 2), :class => "btn btn-success", data: { confirm: 'Are you sure you want to give admin priveleges?' } do %>
+                  <span class="glyphicon glyphicon-chevron-up"></span>
+                <% end %>
+                <%= link_to set_role_path(:id => user.uid, :role => 0), :class => "btn btn-danger" do %>
+                  <span class="glyphicon glyphicon-chevron-down"></span>
+                <% end %>
               </td>
             <% else %>
               <td>
                 Commenter
               </td>
               <td>
-                <%= link_to "Set Admin", set_role_path(:id => user.uid, :role => 2), :class => "btn btn-danger" %>
-                <%= link_to "Set Content Manager", set_role_path(:id => user.uid, :role => 1), :class => "btn btn-warning" %>
+                <%= link_to set_role_path(:id => user.uid, :role => 1), :class => "btn btn-success" do %>
+                  <span class="glyphicon glyphicon-chevron-up"></span>
+                <% end %>
+                <button class="btn btn-danger" disabled="disabled"><span class="glyphicon glyphicon-chevron-down"></span></button>
               </td>
             <% end %>
           <% end %>
@@ -61,7 +69,7 @@
           <td><%= access_request.user %></td>
           <td><%= access_request.reason %></td>
           <td>
-          <%= link_to 'Approve', approve_request_url(access_request), :class => 'btn btn-success' %>
+          <%= link_to 'Approve', approve_request_url(access_request), data: { confirm: 'Are you sure?' }, :class => 'btn btn-success' %>
           <%= link_to 'Deny', access_request, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
           </td>
         </tr>

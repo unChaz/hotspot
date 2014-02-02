@@ -1,17 +1,9 @@
 <%# navigation styled for Bootstrap 3.0 %>
-<div class="pull-right">
-  <% if user_admin? %>
-    <%= link_to raw('<span class="glyphicon glyphicon-home"></span>'), '/' %>
-    <%= link_to raw('<span class="glyphicon glyphicon-user"></span>'), '/users' %>
-    <% end %>
-
-
-  <%= link_to raw('<span class="glyphicon glyphicon-map-marker"></span>'), '/my_hotspots' %>
-  
+<div class="pull-right auth">
   <% if current_user %>
-    Welcome <%= current_user.name %>!
-    <%= link_to "Sign Out", signout_path %>
+    Signed in as <%= current_user.name %>.
+    <%= link_to "Log Out", signout_path, :class => "btn btn-primary btn-xs" %>
   <% else %>
-    <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+    <%= link_to "Log in with Facebook", "/auth/facebook", :class => "btn btn-primary btn-xs" %>
   <% end %>
 </div>

@@ -10,6 +10,7 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @owner = User.find(@location.owner)
   end
 
   # GET /locations/new
@@ -23,8 +24,12 @@ class LocationsController < ApplicationController
   # GET /locations/1/edit
   def edit
     location = Location.find(params[:id])
-    if !current_user || (current_user.id != location.owner && !user_admin?)
-      redirect_to root_url, :alert => "Permission Denied."
+    if !current_user
+      redirect_to root_url, :alert => "You must log in to do that."
+    elsif current_user.id != location.owner.to_i
+      if !user_admin?
+        redirect_to root_url, :alert => "Permission Denied."
+      end
     end
   end
 
@@ -52,8 +57,12 @@ class LocationsController < ApplicationController
   # PATCH/PUT /locations/1.json
   def update
     location = Location.find(params[:id])
-    if !current_user || current_user.id != location.owner || !user_admin?
-      redirect_to root_url, :alert => "Permission Denied."
+    if !current_user
+      redirect_to root_url, :alert => "You must log in to do that."
+    elsif current_user.id != location.owner.to_i
+      if !user_admin?
+        redirect_to root_url, :alert => "Permission Denied."
+      end
     else
       respond_to do |format|
         if @location.update(location_params)
@@ -71,8 +80,12 @@ class LocationsController < ApplicationController
   # DELETE /locations/1.json
   def destroy
     location = Location.find(params[:id])
-    if !current_user && current_user.id != location.owner || !user_admin?
-      redirect_to root_url, :alert => "Permission Denied."
+    if !current_user
+      redirect_to root_url, :alert => "You must log in to do that."
+    elsif current_user.id != location.owner.to_i
+      if !user_admin?
+        redirect_to root_url, :alert => "Permission Denied."
+      end
     else
       @location.destroy
       respond_to do |format|
