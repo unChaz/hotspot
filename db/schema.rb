@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140201224838) do
+ActiveRecord::Schema.define(version: 20140202005343) do
 
   create_table "access_requests", force: true do |t|
     t.string   "user"
     t.text     "reason"
     t.boolean  "approved"
     t.boolean  "denied"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "locations", force: true do |t|
+    t.string   "name"
+    t.string   "owner"
+    t.decimal  "lat"
+    t.decimal  "long"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140201224838) do
     t.integer  "role",       default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
 end

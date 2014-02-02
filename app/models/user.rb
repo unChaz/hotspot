@@ -24,4 +24,9 @@ class User < ActiveRecord::Base
     self.role = role
     self.save
   end
+
+  def set_email email
+    self.email = email
+    self.save
+  end
 end
