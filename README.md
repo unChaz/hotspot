@@ -5,6 +5,12 @@ Point of Interest Locator Web Application
 
 Getting Started
 ===============
+
+###Add a line to your /etc/hosts file###
+
+127.0.0.1 hotspot.com
+
+###Then###
 bundle install
 
 rake db:migrate
