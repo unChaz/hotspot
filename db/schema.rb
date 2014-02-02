@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117192439) do
+ActiveRecord::Schema.define(version: 20140201224838) do
+
+  create_table "access_requests", force: true do |t|
+    t.string   "user"
+    t.text     "reason"
+    t.boolean  "approved"
+    t.boolean  "denied"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "provider"

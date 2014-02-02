@@ -3,12 +3,11 @@
   <% if user_admin? %>
     <%= link_to raw('<span class="glyphicon glyphicon-home"></span>'), '/' %>
     <%= link_to raw('<span class="glyphicon glyphicon-user"></span>'), '/users' %>
-    <%= link_to raw('<span class="glyphicon glyphicon-map-marker"></span>'), '/my_hotspots' %>
     <% end %>
 
-    <% if user_content_manager? %>
-    <%= link_to raw('<span class="glyphicon glyphicon-map-marker"></span>'), '/my_hotspots' %>
-    <% end %>
+
+  <%= link_to raw('<span class="glyphicon glyphicon-map-marker"></span>'), '/my_hotspots' %>
+  
   <% if current_user %>
     Welcome <%= current_user.name %>!
     <%= link_to "Sign Out", signout_path %>
