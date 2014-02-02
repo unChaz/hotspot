@@ -2,6 +2,7 @@ class AdministrationController < ApplicationController
   def index
     if user_admin?
       @users = User.all
+      @users.delete(current_user)
       @access_requests = AccessRequest.all
     else
      redirect_to root_url, :alert => "You do not have permission to view this page."

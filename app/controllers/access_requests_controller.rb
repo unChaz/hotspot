@@ -12,6 +12,7 @@ class AccessRequestsController < ApplicationController
     user.role = 1
     user.save
     redirect_to users_url, notice: 'Request Approved.'
+    request.destroy
   end
 
   # POST /access_requests
