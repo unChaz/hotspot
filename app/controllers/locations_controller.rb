@@ -43,7 +43,7 @@ class LocationsController < ApplicationController
       @location.owner = current_user.id
       respond_to do |format|
         if @location.save
-          format.html { redirect_to @location, notice: 'Location was successfully created.' }
+          format.html { redirect_to dashboard_url, notice: 'Location was successfully created.' }
           format.json { render action: 'show', status: :created, location: @location }
         else
           format.html { render action: 'new' }
@@ -89,7 +89,7 @@ class LocationsController < ApplicationController
     else
       @location.destroy
       respond_to do |format|
-        format.html { redirect_to locations_url }
+        format.html { redirect_to dashboard_url }
         format.json { head :no_content }
       end
     end
