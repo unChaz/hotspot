@@ -5,7 +5,7 @@ class MyHotspotsController < ApplicationController
     elsif !user_content_manager? && !user_admin?
       redirect_to cm_application_url, :alert => "You must become a content manager first."
     else
-      #Find the users hotspots.
+      @hotspots = Location.find(:all, :conditions => { :owner => current_user.id})
     end
   end
 end

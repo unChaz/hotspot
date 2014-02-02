@@ -23,14 +23,17 @@
           <li>
           <%= link_to raw('<span class="glyphicon glyphicon-home"></span> Home'), '/' %>
           </li>
+          <li>
+          <%= link_to raw('<span class="glyphicon glyphicon glyphicon-search"></span> Browse'), '/browse' %>
+          </li>
+          <li>
+          <%= link_to raw('<span class="glyphicon glyphicon-map-marker"></span> My Hotspots'), '/my_hotspots' %>
+          </li>
           <% if user_admin? %>
             <li>
             <%= link_to raw('<span class="glyphicon glyphicon-user"></span> Administration'), '/users' %>
             </li>
           <% end %>
-          <li>
-          <%= link_to raw('<span class="glyphicon glyphicon-map-marker"></span> My Hotspots'), '/my_hotspots' %>
-          </li>
         </ul>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <form class="navbar-form navbar-right" role="search">
@@ -42,8 +45,9 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
    </div>
 
   </body>

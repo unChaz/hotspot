@@ -1,1 +1,33 @@
-<h2>Coming Soon</h2>
+<h2>My HotSpots</h2>
+<div class="panel">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hotspots.each do |hotspot| %>
+      <tr>
+        <td><%= link_to hotspot.name, hotspot %></td>
+        <td><%= hotspot.lat %></td>
+        <td><%= hotspot.long %></td>
+        <td><%= hotspot.description %></td>
+        <td>
+          <%= link_to 'Edit', edit_location_path(hotspot), :class => "btn btn-info" %>
+          <%= button_to 'Delete', hotspot, :method => :delete, :class => "btn btn-danger", data: { confirm: 'Are you sure you want to permanently delete this HotSpot?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to raw('<span class="glyphicon glyphicon-plus"></span>'), new_location_path, :class => "btn btn-success", :style => "margin:5px;" %>
+
+</div>
