@@ -11,3 +11,39 @@
  *= require_self
  *= require_tree .
  */
+.map-box {
+
+}
+ 
+.btn {
+    color:#FFF !important; 
+}
+
+.btn-default {
+    color:#000000 !important; 
+}
+
+.title-link:hover {
+  color:#000000 !important;
+  text-decoration: none;
+}
+
+.title-link {
+  margin: 3px;
+}
+
+.auth {
+  margin: 2px;
+}
+
+.container {
+  background-color: #fff;
+}
+
+body {
+  background-color: #C5C5C5!important;
+}
+
+.alert-box {
+  margin: 5px;
+}

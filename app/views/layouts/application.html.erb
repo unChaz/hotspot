@@ -11,8 +11,38 @@
   <body>
   <div class="container">
     <%= render 'layouts/navigation' %>
-    <h1>HotSpot</h1>
-    <%= render 'layouts/messages' %>
+
+    <div class="row">
+      <div class="col-md-3"><a class="title-link" href="/"><h1>HotSpot</h1></a></div>
+      <div class="col-md-6 alert-box"><%= render 'layouts/messages' %></div>
+    </div>    
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li>
+          <%= link_to raw('<span class="glyphicon glyphicon-home"></span> Home'), '/' %>
+          </li>
+          <% if user_admin? %>
+            <li>
+            <%= link_to raw('<span class="glyphicon glyphicon-user"></span> Administration'), '/users' %>
+            </li>
+          <% end %>
+          <li>
+          <%= link_to raw('<span class="glyphicon glyphicon-map-marker"></span> My Hotspots'), '/my_hotspots' %>
+          </li>
+        </ul>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
     <%= yield %>
    </div>
 

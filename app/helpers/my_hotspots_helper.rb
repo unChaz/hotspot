@@ -1,0 +1,2 @@
+module MyHotspotsHelper
+end
