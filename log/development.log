@@ -98882,3 +98882,939 @@ Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 
 
 
 Started GET "/assets/pepper.png" for 127.0.0.1 at 2014-02-02 22:24:59 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#map as HTML
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered home/map.html.erb within layouts/application (7.1ms)
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_navigation.html.erb (9.7ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 205ms (Views: 201.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/administration.css?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/access_requests.css?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/framework_and_overrides.css?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/my_hotspots.css?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:41 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/assets/access_requests.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/assets/administration.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/assets/my_hotspots.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/assets/pepper.png" for 127.0.0.1 at 2014-02-02 22:25:42 -0500
+
+
+Started GET "/11" for 127.0.0.1 at 2014-02-02 22:25:59 -0500
+Processing by LocationsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = ? LIMIT 1  [["id", "11"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered locations/show.html.erb within layouts/application (0.9ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/access_requests.css?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/administration.css?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/framework_and_overrides.css?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/my_hotspots.css?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/access_requests.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/administration.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/my_hotspots.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/assets/pepper.png" for 127.0.0.1 at 2014-02-02 22:26:00 -0500
+
+
+Started GET "/my_hotspots" for 127.0.0.1 at 2014-02-02 22:27:20 -0500
+Processing by MyHotspotsController#dashboard as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+DEPRECATION WARNING: Calling #find(:all) is deprecated. Please call #all directly instead. You have also used finder options. These are also deprecated. Please build a scope instead of using finder options. (called from dashboard at /Users/chaz/Workspace/hotspot/app/controllers/my_hotspots_controller.rb:8)
+DEPRECATION WARNING: Relation#all is deprecated. If you want to eager-load a relation, you can call #load (e.g. `Post.where(published: true).load`). If you want to get an array of records from a relation, you can call #to_a (e.g. `Post.where(published: true).to_a`). (called from dashboard at /Users/chaz/Workspace/hotspot/app/controllers/my_hotspots_controller.rb:8)
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."owner" = 1
+  Rendered my_hotspots/dashboard.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_navigation.html.erb (0.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/framework_and_overrides.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/access_requests.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/administration.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/my_hotspots.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/access_requests.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/administration.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/my_hotspots.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:21 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+Processing by HomeController#map as HTML
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered home/map.html.erb within layouts/application (1.4ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_navigation.html.erb (0.8ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 12ms (Views: 11.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/access_requests.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/administration.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/framework_and_overrides.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/my_hotspots.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/access_requests.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/administration.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/my_hotspots.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/assets/pepper.png" for 127.0.0.1 at 2014-02-02 22:27:24 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-02 22:28:29 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#map as HTML
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered home/map.html.erb within layouts/application (7.5ms)
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_navigation.html.erb (9.5ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 211ms (Views: 207.7ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/access_requests.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/framework_and_overrides.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/administration.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/my_hotspots.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/administration.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/access_requests.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/my_hotspots.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/assets/pepper.png" for 127.0.0.1 at 2014-02-02 22:28:30 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+Processing by HomeController#map as HTML
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered home/map.html.erb within layouts/application (1.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_navigation.html.erb (1.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 54ms (Views: 53.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/access_requests.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/framework_and_overrides.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/my_hotspots.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/administration.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/administration.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/access_requests.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/my_hotspots.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/assets/pepper.png" for 127.0.0.1 at 2014-02-02 22:28:36 -0500
+
+
+Started GET "/users" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+Processing by AdministrationController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mAccessRequest Load (0.2ms)[0m  [1mSELECT "access_requests".* FROM "access_requests"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered administration/index.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_navigation.html.erb (0.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 20ms (Views: 17.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/access_requests.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/framework_and_overrides.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/administration.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/my_hotspots.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/administration.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/access_requests.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/my_hotspots.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-02 22:28:50 -0500
+
+
+Started GET "/users/100007601323015/setrole/1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+Processing by AdministrationController#setrole as HTML
+  Parameters: {"id"=>"100007601323015", "role"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."uid" = '100007601323015' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."uid" = '100007601323015' AND "users"."id" != 2) LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1mUPDATE "users" SET "role" = ?, "updated_at" = ? WHERE "users"."id" = 2[0m  [["role", 1], ["updated_at", Mon, 03 Feb 2014 03:28:54 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT 1 AS one FROM "users" WHERE ("users"."uid" = '100007601323015' AND "users"."id" != 2) LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://hotspot.com:3000/users
+Completed 302 Found in 23ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+Processing by AdministrationController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mAccessRequest Load (0.1ms)[0m  [1mSELECT "access_requests".* FROM "access_requests"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users"
+  Rendered administration/index.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_navigation.html.erb (0.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/administration.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/access_requests.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/framework_and_overrides.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/my_hotspots.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/access_requests.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/administration.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/my_hotspots.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:54 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:55 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:55 -0500
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-02 22:28:55 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+Processing by HomeController#map as HTML
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered home/map.html.erb within layouts/application (1.1ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered layouts/_navigation.html.erb (0.6ms)
+  Rendered layouts/_messages.html.erb (0.0ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/access_requests.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/administration.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/framework_and_overrides.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/my_hotspots.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/locations.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/administration.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/access_requests.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/locations.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/my_hotspots.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/bootstrap/glyphicons-halflings-regular.woff" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
+
+
+Started GET "/assets/pepper.png" for 127.0.0.1 at 2014-02-02 22:28:57 -0500
