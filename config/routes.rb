@@ -4,8 +4,8 @@ Hotspot::Application.routes.draw do
   resources :access_requests
 
 #Index
-get "/" => "home#index"
-root :to => "home#index"
+get "/" => "home#map"
+root :to => "home#map"
 
 #Sessions
 get "/auth/:provider/callback" => "sessions#create"
