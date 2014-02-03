@@ -1,11 +1,11 @@
-<h1>Listing locations</h1>
+<h3>Browse Hotspots</h3>
 
 <table class="table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Lat</th>
-      <th>Long</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
       <th>Description</th>
     </tr>
   </thead>
@@ -13,7 +13,7 @@
   <tbody>
     <% @locations.each do |location| %>
       <tr>
-        <td><%= link_to location.name, location %></td>
+        <td><h4><%= link_to location.name, location %></h4></td>
         <td><%= location.lat %></td>
         <td><%= location.long %></td>
         <td><%= location.description %></td>
@@ -23,5 +23,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Location', new_location_path, :class => "btn btn-primary" %>

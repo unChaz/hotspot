@@ -1,29 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @location.name %>
-</p>
+<h3><%= @location.name %></h3>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @owner.name %>
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <div id="map-canvas" class="minimap"></div>
+  </div>
+  <div class="col-md-6">
+    <div class="well"><%= @location.description %></div>
+    <div style="text-align:center;"><a href="#" class="btn btn-large btn-primary"><span class="glyphicon glyphicon-road"></span> Get Directions</a></div>
+  </div>
+</div>
 
-<p>
-  <strong>Lat:</strong>
-  <%= @location.lat %>
-</p>
-
-<p>
-  <strong>Long:</strong>
-  <%= @location.long %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @location.description %>
-</p>
-
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', root_url %>
+<script type="text/javascript">
+window.hotspot.initialize();
+function loadScript() {
+  window.hotspot.addMarkerIconToMap(<%= @location.lat %>, <%= @location.long %>);
+  window.hotspot.map.setCenter(new google.maps.LatLng(<%= @location.lat %>, <%= @location.long %>));
+  window.hotspot.map.setZoom(15);
+}
+window.onload = loadScript;
+</script>

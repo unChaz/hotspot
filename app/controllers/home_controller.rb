@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
-  def index
+  def map
+    @locations = Location.all
   end
 end
