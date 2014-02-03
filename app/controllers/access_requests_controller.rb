@@ -11,6 +11,7 @@ class AccessRequestsController < ApplicationController
     user = User.find(request.user)
     user.role = 1
     user.save
+    UserMailer.approve_email(user).deliver
     redirect_to users_url, notice: 'Request Approved.'
     request.destroy
   end
