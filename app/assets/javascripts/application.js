@@ -16,6 +16,7 @@
 //= require_tree .
 
 var hotspot = window.hotspot = {};
+hotspot.openInfoWindows = [];
 
 function getLocation() {
   if (navigator.geolocation){
@@ -68,7 +69,11 @@ hotspot.addMarkerToMap = function(lat, long, name, description, id){
   });
 
   google.maps.event.addListener(marker, 'click', function() {
+    hotspot.openInfoWindows.forEach(function(iw) {
+      iw.close();
+    });
     infowindow.open(window.hotspot.map,marker);
+    hotspot.openInfoWindows.push(infowindow);
   });
 }
 
