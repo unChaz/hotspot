@@ -11,6 +11,7 @@ class AccessRequestsController < ApplicationController
     user = User.find(request.user)
     user.role = 1
     user.save
+    UserMailer.approve_email(user).deliver
     redirect_to users_url, notice: 'Request Approved.'
     request.destroy
   end
@@ -49,6 +50,8 @@ class AccessRequestsController < ApplicationController
   # DELETE /access_requests/1.json
   def destroy
     @access_request.destroy
+    user = User.find(@access_request.user)
+    UserMailer.deny_email(user).deliver
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :no_content }
