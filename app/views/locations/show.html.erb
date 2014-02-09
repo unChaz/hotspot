@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h3><%= @location.name %></h3>
 
 <div class="row">
@@ -12,12 +10,90 @@
   </div>
 </div>
 
+<div class="row gallery-row">
+  <% unless @location.image1.blank? %>
+    <div class="col-xs-6 col-md-3 gallery-thumb">
+      <a href="#" class="thumbnail" data-toggle="modal" data-target="#image1Modal">
+      <%= image_tag @location.image1.url(:medium) %>
+      </a>
+    </div>
+  <% end %>
+  <% unless @location.image2.blank? %>
+    <div class="col-xs-6 col-md-3 gallery-thumb">
+      <a href="#" class="thumbnail" data-toggle="modal" data-target="#image2Modal">
+      <%= image_tag @location.image2.url(:medium) %>
+      </a>
+    </div>
+  <% end %>
+  <% unless @location.image3.blank? %>
+    <div class="col-xs-6 col-md-3 gallery-thumb">
+      <a href="#" class="thumbnail" data-toggle="modal" data-target="#image3Modal">
+      <%= image_tag @location.image3.url(:medium) %>
+      </a>
+    </div>
+  <% end %>
+  <% unless @location.image4.blank? %>
+    <div class="col-xs-6 col-md-3 gallery-thumb">
+      <a href="#" class="thumbnail" data-toggle="modal" data-target="#image4Modal">
+      <%= image_tag @location.image4.url(:medium) %>
+      </a>
+    </div>
+  <% end %>
+</div>
+
 <% if user_admin? %>
 <div style="margin:10px;" class="pull-right">
 <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %>
 </div>
 <% end %>
 
+<% unless @location.image1.blank? %>
+  <div class="modal fade" id="image1Modal" tabindex="-1" role="dialog" aria-labelledby="image1Modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= image_tag @location.image1.url %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% unless @location.image2.blank? %>
+  <div class="modal fade" id="image2Modal" tabindex="-1" role="dialog" aria-labelledby="image2Modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= image_tag @location.image2.url %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% unless @location.image3.blank? %>
+  <div class="modal fade" id="image3Modal" tabindex="-1" role="dialog" aria-labelledby="image3Modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= image_tag @location.image3.url %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% unless @location.image4.blank? %>
+  <div class="modal fade" id="image4Modal" tabindex="-1" role="dialog" aria-labelledby="image4Modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= image_tag @location.image4.url %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <script type="text/javascript">
 window.hotspot.initialize();
