@@ -17,5 +17,9 @@ tmp
 _yardoc
 doc/
 
+
+db/*
+public/*
 .log
 .sqlite3
+log/development.log

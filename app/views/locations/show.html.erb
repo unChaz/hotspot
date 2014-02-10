@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<h3><%= @location.name %></h3>
+<h3><%= @location.name %><% if user_admin? %>
+<div style="margin:10px;" class="pull-right">
+<%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %>
+</div>
+<% end %></h3>
 
 <div class="row">
   <div class="col-md-6">
@@ -12,24 +14,98 @@
   </div>
 </div>
 
-<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-	    if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=249607688534353";
-		fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
-<script>
-	document.write("<div class='fb-comments' data-href='" + window.location.href + "' data-num-posts='2' data-width='500'></div>");
-</script>
-
-<% if user_admin? %>
-<div style="margin:10px;" class="pull-right">
-<%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %>
+<div class="row gallery-row">
+  <% unless @location.image1.blank? %>
+    <div class="col-xs-6 col-md-3 gallery-thumb">
+      <a href="#" class="thumbnail" data-toggle="modal" data-target="#image1Modal">
+      <%= image_tag @location.image1.url(:medium) %>
+      </a>
+    </div>
+  <% end %>
+  <% unless @location.image2.blank? %>
+    <div class="col-xs-6 col-md-3 gallery-thumb">
+      <a href="#" class="thumbnail" data-toggle="modal" data-target="#image2Modal">
+      <%= image_tag @location.image2.url(:medium) %>
+      </a>
+    </div>
+  <% end %>
+  <% unless @location.image3.blank? %>
+    <div class="col-xs-6 col-md-3 gallery-thumb">
+      <a href="#" class="thumbnail" data-toggle="modal" data-target="#image3Modal">
+      <%= image_tag @location.image3.url(:medium) %>
+      </a>
+    </div>
+  <% end %>
+  <% unless @location.image4.blank? %>
+    <div class="col-xs-6 col-md-3 gallery-thumb">
+      <a href="#" class="thumbnail" data-toggle="modal" data-target="#image4Modal">
+      <%= image_tag @location.image4.url(:medium) %>
+      </a>
+    </div>
+  <% end %>
 </div>
+
+
+
+<% unless @location.image1.blank? %>
+  <div class="modal fade" id="image1Modal" tabindex="-1" role="dialog" aria-labelledby="image1Modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= image_tag @location.image1.url %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
 
+<% unless @location.image2.blank? %>
+  <div class="modal fade" id="image2Modal" tabindex="-1" role="dialog" aria-labelledby="image2Modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= image_tag @location.image2.url %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% unless @location.image3.blank? %>
+  <div class="modal fade" id="image3Modal" tabindex="-1" role="dialog" aria-labelledby="image3Modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= image_tag @location.image3.url %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% unless @location.image4.blank? %>
+  <div class="modal fade" id="image4Modal" tabindex="-1" role="dialog" aria-labelledby="image4Modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <%= image_tag @location.image4.url %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=249607688534353";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  document.write("<div class='fb-comments' data-href='" + window.location.href + "' data-num-posts='2' data-width='500'></div>");
+</script>
 
 <script type="text/javascript">
 window.hotspot.initialize();
