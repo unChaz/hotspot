@@ -41,11 +41,7 @@
   <% end %>
 </div>
 
-<% if user_admin? %>
-<div style="margin:10px;" class="pull-right">
-<%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %>
-</div>
-<% end %>
+
 
 <% unless @location.image1.blank? %>
   <div class="modal fade" id="image1Modal" tabindex="-1" role="dialog" aria-labelledby="image1Modal" aria-hidden="true">
@@ -94,6 +90,24 @@
     </div>
   </div>
 <% end %>
+
+<% if user_admin? %>
+<div style="margin:10px;" class="pull-right">
+<%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %>
+</div>
+<% end %>
+
+<div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=249607688534353";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  document.write("<div class='fb-comments' data-href='" + window.location.href + "' data-num-posts='2' data-width='500'></div>");
+</script>
 
 <script type="text/javascript">
 window.hotspot.initialize();
