@@ -1,4 +1,8 @@
-<h3><%= @location.name %></h3>
+<h3><%= @location.name %><% if user_admin? %>
+<div style="margin:10px;" class="pull-right">
+<%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %>
+</div>
+<% end %></h3>
 
 <div class="row">
   <div class="col-md-6">
@@ -89,12 +93,6 @@
       </div>
     </div>
   </div>
-<% end %>
-
-<% if user_admin? %>
-<div style="margin:10px;" class="pull-right">
-<%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %>
-</div>
 <% end %>
 
 <div id="fb-root"></div>
