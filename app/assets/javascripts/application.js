@@ -25,17 +25,22 @@ function getLocation() {
 }
 
 function setPosition(position){
-  window.latitute = position.coords.latitude;
+  window.latitude = position.coords.latitude;
   window.longitude = position.coords.longitude; 
-}
-
-function initializeGmap() {
   var mapOptions = {
     center: new google.maps.LatLng(window.latitude || 33.57343, window.longitude || -85.09874000000001),
-    zoom: 10
+    zoom: 18
   };
   window.hotspot.map = new google.maps.Map(document.getElementById("map-canvas"),
       mapOptions);
+}
+
+function initializeGmap() {
+  if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(setPosition);
+  } else {
+    console.log("No geolocation available.");
+  }
 }
 
 hotspot.addMarkerToMap = function(lat, long, name, description, id){
