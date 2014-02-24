@@ -26,13 +26,13 @@ function getLocation() {
 
 function setPosition(position){
   window.latitude = position.coords.latitude;
-  window.longitude = position.coords.longitude; 
+  window.longitude = position.coords.longitude;
   var mapOptions = {
     center: new google.maps.LatLng(window.latitude || 33.57343, window.longitude || -85.09874000000001),
     zoom: 18
   };
   window.hotspot.map = new google.maps.Map(document.getElementById("map-canvas"),
-      mapOptions);
+      mapOptions); 
 }
 
 function initializeGmap() {
@@ -40,7 +40,14 @@ function initializeGmap() {
     navigator.geolocation.getCurrentPosition(setPosition);
   } else {
     console.log("No geolocation available.");
+    var mapOptions = {
+      center: new google.maps.LatLng(window.latitude || 33.57343, window.longitude || -85.09874000000001),
+      zoom: 18
+    };
+    window.hotspot.map = new google.maps.Map(document.getElementById("map-canvas"),
+      mapOptions);
   }
+  
 }
 
 hotspot.addMarkerToMap = function(lat, long, name, description, id){
@@ -108,7 +115,19 @@ hotspot.codeAddress = function(address) {
     });
 }
 
-hotspot.initialize = function(){
-  getLocation();
+hotspot.initialize = function(lat, lng){
+  if (!lat) {
+    getLocation();
+  } else {
+    window.latitude = lat;
+    window.longitude = lng;
+    var mapOptions = {
+      center: new google.maps.LatLng(window.latitude || 33.57343, window.longitude || -85.09874000000001),
+      zoom: 18
+    };
+    window.hotspot.map = new google.maps.Map(document.getElementById("map-canvas"),
+      mapOptions); 
+  }
+  
   google.maps.event.addDomListener(window, 'load', initializeGmap);
 }   

@@ -84,8 +84,6 @@
 <% end %>
 
 <script type="text/javascript">
-window.hotspot.initialize();
-
 
 jQuery('input[name=search]').click(function() {
   var geocoder = new google.maps.Geocoder(); 
@@ -127,12 +125,14 @@ function geocodePosition(pos) {
 function updateMarkerPosition(latLng) {
   $('#location_lat').val(latLng.lat());
   $('#location_long').val(latLng.lng());
+
 }
 
 function initialize() {
   var lat = $('#location_lat').val() || -34.397;
-  var lng =$('#location_long').val() || 150.644;
+  var lng = $('#location_long').val() || 150.644;
   var latLng = new google.maps.LatLng(lat, lng);
+  window.hotspot.initialize($('#location_lat').val(), $('#location_long').val());
 
   window.hotspot.marker = new google.maps.Marker({
     position: latLng,
