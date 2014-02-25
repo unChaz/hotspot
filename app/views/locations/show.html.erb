@@ -3,16 +3,41 @@
 <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %>
 </div>
 <% end %></h3>
-
+	<script>
+		function showDirections()
+		{
+			document.getElementById("directionsWidget").style.visibility="visible";
+			document.getElementById("hideDirections").style.visibility="visible";
+		}
+		function hideDirections()
+		{
+			document.getElementById("directionsWidget").style.visibility="hidden";
+			document.getElementById("hideDirections").style.visibility="hidden";
+		}			
+		
+	</script>
 <div class="row">
   <div class="col-md-6">
     <div id="map-canvas" class="minimap"></div>
   </div>
   <div class="col-md-6">
     <div class="well"><%= @location.description %></div>
-    <div style="text-align:center;"><a href="#" class="btn btn-large btn-primary"><span class="glyphicon glyphicon-road"></span> Get Directions</a></div>
+    <div align="center">
+		<button id="getDirections" class="btn btn-large btn-primary" onClick="showDirections()">
+		<span class="glyphicon glyphicon-road"></span>
+		<span class="text">Get Directions</span>
+		</button>
+		<button id="hideDirections" style="visibility: hidden;" class="btn btn-large btn-primary" onClick="hideDirections()">
+		<span class="glyphicon glyphicon-remove"></span>
+		<span class="text">Hide Directions</span>
+		</button>
+	</div>
+	<div id="directionsWidget" align="center" position="relative" style="visibility: hidden;">
+		<script src="//www.gmodules.com/ig/ifr?url=http://hosting.gmodules.com/ig/gadgets/file/114281111391296844949/driving-directions.xml&up_fromLocation=&up_myLocations=<%= @location.lat %>, <%= @location.long %>(<%= @location.name%>)&up_defaultDirectionsType=&up_autoExpand=&synd=open&w=205&h=60&title=&brand=light&lang=en&country=US&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
+	</div>
   </div>
 </div>
+
 
 <div class="row gallery-row">
   <% unless @location.image1.blank? %>
@@ -96,22 +121,25 @@
 <% end %>
 
 <div id="fb-root"></div>
-    <script>(function(d, s, id) {
+<script>
+  (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
     js = d.createElement(s); js.id = id;
     js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=249607688534353";
     fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 <script>
   document.write("<div class='fb-comments' data-href='" + window.location.href + "' data-num-posts='2' data-width='500'></div>");
 </script>
 
 <script type="text/javascript">
+window.hotspot.useCurrentLocation = false;
 window.hotspot.initialize();
 function loadScript() {
   window.hotspot.addMarkerIconToMap(<%= @location.lat %>, <%= @location.long %>);
-  window.hotspot.map.setCenter(new google.maps.LatLng(<%= @location.lat %>, <%= @location.long %>));
+  window.hotspot.setCenter(<%= @location.lat %>, <%= @location.long %>);
   window.hotspot.map.setZoom(15);
 }
 window.onload = loadScript;

@@ -27,12 +27,7 @@ function getLocation() {
 function setPosition(position){
   window.latitude = position.coords.latitude;
   window.longitude = position.coords.longitude;
-  var mapOptions = {
-    center: new google.maps.LatLng(window.latitude || 33.57343, window.longitude || -85.09874000000001),
-    zoom: 18
-  };
-  window.hotspot.map = new google.maps.Map(document.getElementById("map-canvas"),
-      mapOptions); 
+  window.hotspot.setCenter(window.latitude, window.longitude)
 }
 
 function initializeGmap() {
@@ -104,6 +99,14 @@ hotspot.addMarkerIconToMap = function(lat, long){
   });
 }
 
+hotspot.setCenter = function(lat, lng) {
+  window.hotspot.map.setCenter(new google.maps.LatLng(lat, lng));
+}
+
+hotspot.addMovableMarker = function(lat, long) {
+
+}
+
 hotspot.codeAddress = function(address) {
     var geocoder = new google.maps.Geocoder();
     geocoder.geocode({
@@ -116,18 +119,15 @@ hotspot.codeAddress = function(address) {
 }
 
 hotspot.initialize = function(lat, lng){
-  if (!lat) {
+  if (!lat && window.hotspot.useCurrentLocation) {
     getLocation();
-  } else {
-    window.latitude = lat;
-    window.longitude = lng;
-    var mapOptions = {
-      center: new google.maps.LatLng(window.latitude || 33.57343, window.longitude || -85.09874000000001),
-      zoom: 18
-    };
-    window.hotspot.map = new google.maps.Map(document.getElementById("map-canvas"),
-      mapOptions); 
   }
+  var mapOptions = {
+    center: new google.maps.LatLng(window.latitude || 33.57343, window.longitude || -85.09874000000001),
+    zoom: 18
+  };
+  window.hotspot.map = new google.maps.Map(document.getElementById("map-canvas"),
+    mapOptions); 
   
   google.maps.event.addDomListener(window, 'load', initializeGmap);
 }   

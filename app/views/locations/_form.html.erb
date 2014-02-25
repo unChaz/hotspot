@@ -23,7 +23,10 @@
     </div>
   </div>
   <div class="col-md-6">
-  <div style="padding-bottom:10px;"><input type="text" name="address" value="University of West Georgia" style="width:300px;height:30px;border:1px solid black"><input type="button" class="btn btn-sm btn-primary" name="search" value="Go To Address"></div>
+  <p class="lead">Move the pin to the location.</p>
+  <div style="padding-bottom:10px;"><input type="text" name="address" value="University of West Georgia" style="width:250px;height:30px;border:1px solid black"> <input type="button" class="btn btn-sm btn-primary" name="search" value="Pin To Address"> -- OR -- 
+  <input type="button" class="btn btn-sm btn-primary" name="start" value="Pin Here"></div>
+  
     <div id="map-canvas" class="minimap"></div>
   </div>
   <div class="row">
@@ -85,6 +88,8 @@
 
 <script type="text/javascript">
 
+window.hotspot.useCurrentLocation = true;
+
 jQuery('input[name=search]').click(function() {
   var geocoder = new google.maps.Geocoder(); 
     geocoder.geocode({
@@ -108,6 +113,14 @@ jQuery('input[name=search]').click(function() {
     );
 });
 
+jQuery('input[name=start]').click(function() {
+  var center = window.hotspot.map.getCenter();
+
+  window.hotspot.marker.setPosition(center);
+  updateMarkerPosition(window.hotspot.marker.getPosition());
+});
+
+
 var geocoder = new google.maps.Geocoder();
 
 function geocodePosition(pos) {
@@ -125,7 +138,6 @@ function geocodePosition(pos) {
 function updateMarkerPosition(latLng) {
   $('#location_lat').val(latLng.lat());
   $('#location_long').val(latLng.lng());
-
 }
 
 function initialize() {
@@ -141,6 +153,9 @@ function initialize() {
     draggable: true
   });
   
+  var coords = new google.maps.LatLng(lat,lng);
+
+  window.hotspot.marker.setPosition(coords);
   // Update current position info.
   updateMarkerPosition(latLng);
   geocodePosition(latLng);
@@ -156,5 +171,8 @@ function initialize() {
 }
 
 // Onload handler to fire off the app.
-google.maps.event.addDomListener(window, 'load', initialize);
+function loadScript() {
+  initialize();
+}
+window.onload = loadScript;
 </script>
