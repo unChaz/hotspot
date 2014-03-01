@@ -148,7 +148,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   omniauth-facebook
-  paperclip (~> 3.0)
+  paperclip (~> 3.5)
   rails (= 4.0.2)
   rails_layout
   sass-rails (~> 4.0.0)

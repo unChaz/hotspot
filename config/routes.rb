@@ -1,5 +1,7 @@
 Hotspot::Application.routes.draw do
 
+  resources :photos
+
   resources :locations
   resources :access_requests
 
@@ -21,6 +23,9 @@ get "/my_hotspots" => "my_hotspots#dashboard", :as => 'dashboard'
 #Access Request
 get "/content_manager_application" => "access_requests#new", :as => "cm_application"
 get "/approve_request/:id" => "access_requests#approve", :as => "approve_request"
+
+get "/approve_image/:id" => "photos#approve", :as => "approve_image"
+get "/deny_image/:id" => "photos#deny", :as => "deny_image"
 
 #Locations
 get "/new" => "locations#new"

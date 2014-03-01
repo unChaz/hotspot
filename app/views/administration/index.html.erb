@@ -4,6 +4,7 @@
 <ul class="nav nav-tabs">
   <li class="active"><a href="#users" data-toggle="tab">Users</a></li>
   <li><a href="#access_request" data-toggle="tab">Access Requests <span class="badge"><%= @access_requests.length %></span></a></li>
+  <li><a href="#image_requests" data-toggle="tab">Image Requests <span class="badge"><%= @image_requests.length %></span></a></li>
 </ul>
 
 <!-- Tab panes -->
@@ -79,6 +80,30 @@
             <td>
             <%= link_to 'Approve', approve_request_url(access_request), data: { confirm: 'Are you sure?' }, :class => 'btn btn-success' %>
             <%= link_to 'Deny', access_request, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane" id="image_requests">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Hotspot ID</th>
+          <th>Image</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @image_requests.each do |image_request| %>
+          <tr>
+            <td><%= image_request.location_id %></td>
+            <td><%= image_tag image_request.image.url(:medium) %></td>
+            <td>
+            <%= link_to 'Approve', approve_image_url(image_request), data: { confirm: 'Are you sure?' }, :class => 'btn btn-success' %>
+            <%= link_to 'Deny', deny_image_url(image_request), data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
             </td>
           </tr>
         <% end %>

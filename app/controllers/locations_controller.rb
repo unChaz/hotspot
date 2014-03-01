@@ -11,6 +11,8 @@ class LocationsController < ApplicationController
   # GET /locations/1.json
   def show
     @owner = User.find(@location.owner)
+    @user_uploaded_images = Photo.find(:all, :conditions => { :denied => false, :approved => true, :location_id => @location.id})
+    @new_image = Photo.new
   end
 
   # GET /locations/new

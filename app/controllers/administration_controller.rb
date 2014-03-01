@@ -3,6 +3,7 @@ class AdministrationController < ApplicationController
     if user_admin?
       @users = User.all
       @access_requests = AccessRequest.all
+      @image_requests = Photo.find(:all, :conditions => { :denied => false, :approved => false})
     else
      redirect_to root_url, :alert => "You do not have permission to view this page."
     end
