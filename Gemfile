@@ -29,7 +29,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem "paperclip", "~> 3.0"
+gem "paperclip", "~> 3.5"
 gem 'omniauth-facebook'
 
 gem 'bootstrap-sass'
