@@ -1,29 +1,96 @@
-<h3><%= @location.name %><% if user_admin? %>
-<div style="margin:10px;" class="pull-right">
-<%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %>
-</div>
-<% end %></h3>
+<table>
+<tr>
+    <td ><h2><%= @location.name %></h2></td>
+	<% if user_admin? %>
+    <td style="padding-left:10px"><%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %></td></td>
+    <td><%= button_to 'Delete', @location, :method => :delete, :class => "btn btn-danger", data: { confirm: 'Are you sure you want to permanently delete this HotSpot?' } %></td>
+	<% end %>
+</tr>
+</table>
+	<div id="share-buttons" style="margin-top:10px; margin-bottom:10px;"  >
+		<!-- AddThis Button BEGIN -->
+		<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+			<a class="addthis_button_facebook"></a>
+			<a class="addthis_button_twitter"></a>
+			<a class="addthis_button_google_plusone_share"></a>
+			<a class="addthis_button_email"></a>
+		</div>
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53151bba170990c9"></script>
+		<!-- AddThis Button END -->
+	</div>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	<script>
-		function showDirections()
-		{
-			document.getElementById("directionsWidget").style.visibility="visible";
-			document.getElementById("hideDirections").style.visibility="visible";
+	var directionsDisplay;
+ 	var directionsService = new google.maps.DirectionsService();
+ 
+ 	function initialize() {
+ 		directionsDisplay = new google.maps.DirectionsRenderer();
+ 		directionsDisplay.setPanel(document.getElementById('directions-panel'));
+ 
+ 		var control = document.getElementById('control');
+ 		control.style.display = 'block';
+ 		map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
+ 	}
+ 
+ 	function calcRoute() {
+		var start = document.getElementById('start').value;
+		var end = "<%=@location.lat%>, <%=@location.long%>";
+		if (navigator.geolocation) { 
+			start =  new google.maps.LatLng(window.latitude, window.longitude);
 		}
-		function hideDirections()
-		{
-			document.getElementById("directionsWidget").style.visibility="hidden";
-			document.getElementById("hideDirections").style.visibility="hidden";
-		}			
+ 		var request = {
+ 			origin : start,
+ 			destination : end,
+ 			travelMode : google.maps.TravelMode.DRIVING
+ 		};
+ 		directionsService.route(request, function(response, status) {
+ 			if (status == google.maps.DirectionsStatus.OK) {
+ 				directionsDisplay.setDirections(response);
+				document.getElementById("print-button").style.visibility="visible";
+				document.getElementById('directions-not-found').innerHTML = "";
+ 			}
+			else{
+				document.getElementById('directions-not-found').innerHTML = "<h1>Unable to retrieve directions, ensure locations are correct.</h1>";
+			}
+ 		});
+ 		
+ 	}	
+ 	function print(){
+ 		var contents = window.document.getElementById('directions-panel'); 
+ 		newWindow= window.open();
+ 		newWindow.document.write(contents.innerHTML);
+ 		newWindow.print();
+ 		newWindow.close();
+     }
+ 	google.maps.event.addDomListener(window, 'load', initialize);
+ 	</script>
+ 	<script>
+ 	function showDirections()
+ 	{	
+		if (navigator.geolocation) { 
+			document.getElementById('start').defaultValue = "Current Location";
+		}
+ 		document.getElementById("directionsWidget").style.visibility="visible";
+ 		document.getElementById("hideDirections").style.visibility="visible";
+ 	}
+ 	function hideDirections()
+ 	{
+ 		document.getElementById("directionsWidget").style.visibility="hidden";
+ 		document.getElementById("hideDirections").style.visibility="hidden";
+ 		document.getElementById("print-button").style.visibility="hidden";
+ 	}			
 		
 	</script>
 <div class="row">
   <div class="col-md-6">
     <div id="map-canvas" class="minimap"></div>
-    <div id="fb-root"></div>
+	<script>
+		document.write("<div class='fb-comments' data-href='" + window.location.href + "' data-num-posts='2' data-width='500'></div>");
+	</script>
   </div>
   <div class="col-md-6">
     <div class="well"><%= @location.description %></div>
-    <div align="center">
+	<div align="center" style="padding-bottom: 10px">
 		<button id="getDirections" class="btn btn-large btn-primary" onClick="showDirections()">
 		<span class="glyphicon glyphicon-road"></span>
 		<span class="text">Get Directions</span>
@@ -32,10 +99,24 @@
 		<span class="glyphicon glyphicon-remove"></span>
 		<span class="text">Hide Directions</span>
 		</button>
+		
+		<button id="print-button" style="visibility: hidden;"  class="btn btn-mini btn-primary" onClick="print()">
+ 		<span class="glyphicon glyphicon-print"></span>
+ 		<span class="text">Print</span>
+ 		</button>
 	</div>
-	<div id="directionsWidget" align="center" position="relative" style="visibility: hidden;">
-		<script src="//www.gmodules.com/ig/ifr?url=http://hosting.gmodules.com/ig/gadgets/file/114281111391296844949/driving-directions.xml&up_fromLocation=&up_myLocations=<%= @location.lat %>, <%= @location.long %>(<%= @location.name%>)&up_defaultDirectionsType=&up_autoExpand=&synd=open&w=205&h=60&title=&brand=light&lang=en&country=US&border=%23ffffff%7C3px%2C1px+solid+%23999999&output=js"></script>
-	</div>
+	
+		<div id="directionsWidget" style="visibility: hidden">
+ 			<div id="control">
+ 				<strong>Start:</strong>
+ 				<input name="start" type="text" maxlength="100" id="start"/>
+ 				<strong>End:</strong>
+ 				<input name="end" type="text" maxlength="100" id="end" value="<%=@location.name%>" readonly/>
+ 				<input type="button" value="Go!" onClick="calcRoute()">
+ 			</div>
+ 			<div id="directions-panel"></div>
+			<div id="directions-not-found"></div>
+ 		</div>
   </div>
 </div>
 
@@ -132,7 +213,7 @@
     </div>
   </div>
 <% end %>
-
+<div id="fb-root"></div>
 <script>
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -142,16 +223,14 @@
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-<script>
-  document.write("<div class='fb-comments' data-href='" + window.location.href + "' data-num-posts='2' data-width='500'></div>");
-</script>
+
 
 <script type="text/javascript">
 window.hotspot.useCurrentLocation = false;
 window.hotspot.initialize();
 function loadScript() {
-  window.hotspot.addMarkerIconToMap(<%= @location.lat %>, <%= @location.long %>);
-  window.hotspot.setCenter(<%= @location.lat %>, <%= @location.long %>);
+  window.hotspot.addMarkerIconToMap(<%=@location.lat%>, <%=@location.long%>);
+  window.hotspot.setCenter(<%=@location.lat%>, <%=@location.long%>);
   window.hotspot.map.setZoom(15);
 }
 window.onload = loadScript;
