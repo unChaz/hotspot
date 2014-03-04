@@ -1,5 +1,15 @@
 <h3><%= @location.name %><% if user_admin? %>
 <%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %>
+<div id="share-buttons" style="margin-top:10px;" >
+	<!-- AddThis Button BEGIN -->
+	<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+		<a class="addthis_button_facebook"></a>
+		<a class="addthis_button_twitter"></a>
+		<a class="addthis_button_google_plusone_share"></a>
+		<a class="addthis_button_email"></a>
+	</div>
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53151bba170990c9"></script>
+	<!-- AddThis Button END -->
 </div>
 <% end %></h3>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
@@ -18,6 +28,7 @@
  	}
  
  	function calcRoute() {
+		
  		var start = document.getElementById('start').value;
  		var end = "<%=@location.lat%>, <%=@location.long%>";
  		var request = {
@@ -28,9 +39,14 @@
  		directionsService.route(request, function(response, status) {
  			if (status == google.maps.DirectionsStatus.OK) {
  				directionsDisplay.setDirections(response);
+				document.getElementById("print-button").style.visibility="visible";
+				document.getElementById('directions-not-found').innerHTML = "";
  			}
+			else{
+				document.getElementById('directions-not-found').innerHTML = "<h1>Unable to retrieve directions, ensure locations are correct.</h1>";
+			}
  		});
- 		document.getElementById("print-button").style.visibility="visible";
+ 		
  	}
  	function print(){
  		var contents = window.document.getElementById('directions-panel'); 
@@ -89,6 +105,7 @@
  				<input type="button" value="Go!" onClick="calcRoute()">
  			</div>
  			<div id="directions-panel"></div>
+			<div id="directions-not-found"></div>
  		</div>
   </div>
 </div>
@@ -196,7 +213,13 @@
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
 
 <script type="text/javascript">
 window.hotspot.useCurrentLocation = false;
