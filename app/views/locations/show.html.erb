@@ -14,7 +14,6 @@
 <% end %></h3>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	<script>
-
 	var directionsDisplay;
  	var directionsService = new google.maps.DirectionsService();
  
@@ -28,9 +27,11 @@
  	}
  
  	function calcRoute() {
-		
- 		var start = document.getElementById('start').value;
- 		var end = "<%=@location.lat%>, <%=@location.long%>";
+		var start = document.getElementById('start').value;
+		var end = "<%=@location.lat%>, <%=@location.long%>";
+		if (navigator.geolocation) { 
+			start =  new google.maps.LatLng(window.latitude, window.longitude);
+		}
  		var request = {
  			origin : start,
  			destination : end,
@@ -47,7 +48,7 @@
 			}
  		});
  		
- 	}
+ 	}	
  	function print(){
  		var contents = window.document.getElementById('directions-panel'); 
  		newWindow= window.open();
@@ -59,7 +60,10 @@
  	</script>
  	<script>
  	function showDirections()
- 	{
+ 	{	
+		if (navigator.geolocation) { 
+			document.getElementById('start').defaultValue = "Current Location";
+		}
  		document.getElementById("directionsWidget").style.visibility="visible";
  		document.getElementById("hideDirections").style.visibility="visible";
  	}
@@ -213,20 +217,14 @@
     fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/platform.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
+
 
 <script type="text/javascript">
 window.hotspot.useCurrentLocation = false;
 window.hotspot.initialize();
 function loadScript() {
-  window.hotspot.addMarkerIconToMap(<%= @location.lat %>, <%= @location.long %>);
-  window.hotspot.setCenter(<%= @location.lat %>, <%= @location.long %>);
+  window.hotspot.addMarkerIconToMap(<%=@location.lat%>, <%=@location.long%>);
+  window.hotspot.setCenter(<%=@location.lat%>, <%=@location.long%>);
   window.hotspot.map.setZoom(15);
 }
 window.onload = loadScript;
