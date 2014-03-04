@@ -37,6 +37,17 @@
             </li>
           <% end %>
         </ul>
+		<div id="share-buttons" style="float:right; margin-top:10px; margin-bottom:10px;"  >
+		<!-- AddThis Button BEGIN -->
+		<div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+			<a class="addthis_button_facebook"></a>
+			<a class="addthis_button_twitter"></a>
+			<a class="addthis_button_google_plusone_share"></a>
+			<a class="addthis_button_email"></a>
+		</div>
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53151bba170990c9"></script>
+		<!-- AddThis Button END -->
+	</div>
         <% if (params[:action] == 'map') %>
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form class="navbar-form navbar-right" role="search" onsubmit="return false">

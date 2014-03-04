@@ -1,17 +1,23 @@
-<h3><%= @location.name %><% if user_admin? %>
-<%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %>
-<div id="share-buttons" style="margin-top:10px;" >
-	<!-- AddThis Button BEGIN -->
-	<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-		<a class="addthis_button_facebook"></a>
-		<a class="addthis_button_twitter"></a>
-		<a class="addthis_button_google_plusone_share"></a>
-		<a class="addthis_button_email"></a>
+<table>
+<tr>
+    <td ><h2><%= @location.name %></h2></td>
+	<% if user_admin? %>
+    <td style="padding-left:10px"><%= link_to 'Edit', edit_location_path(@location), :class => "btn btn-info" %></td></td>
+    <td><%= button_to 'Delete', @location, :method => :delete, :class => "btn btn-danger", data: { confirm: 'Are you sure you want to permanently delete this HotSpot?' } %></td>
+	<% end %>
+</tr>
+</table>
+	<div id="share-buttons" style="margin-top:10px; margin-bottom:10px;"  >
+		<!-- AddThis Button BEGIN -->
+		<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+			<a class="addthis_button_facebook"></a>
+			<a class="addthis_button_twitter"></a>
+			<a class="addthis_button_google_plusone_share"></a>
+			<a class="addthis_button_email"></a>
+		</div>
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53151bba170990c9"></script>
+		<!-- AddThis Button END -->
 	</div>
-	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53151bba170990c9"></script>
-	<!-- AddThis Button END -->
-</div>
-<% end %></h3>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	<script>
 	var directionsDisplay;
