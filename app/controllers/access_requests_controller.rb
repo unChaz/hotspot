@@ -1,8 +1,11 @@
 class AccessRequestsController < ApplicationController
   before_action :set_access_request, only: [:show, :edit, :update, :destroy]
-
+    
   # GET /access_requests/new
   def new
+	if user_content_manager? || user_admin?
+      redirect_to root_url, :alert => "You already have content manager privileges"
+    end
     @access_request = AccessRequest.new
   end
   
