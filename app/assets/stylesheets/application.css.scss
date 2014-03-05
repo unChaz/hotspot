@@ -11,10 +11,6 @@
  *= require_self
  *= require_tree .
  */
-.map-box {
-
-}
- 
 .btn {
     color:#FFF !important; 
 }
@@ -85,4 +81,8 @@ body {
 
 img {
   margin:0 !important;
+}
+
+.adp-marker {
+  visibility:hidden;
 }

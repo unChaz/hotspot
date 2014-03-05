@@ -84,9 +84,6 @@
 <div class="row">
   <div class="col-md-6">
     <div id="map-canvas" class="minimap"></div>
-	<script>
-		document.write("<div class='fb-comments' data-href='" + window.location.href + "' data-num-posts='2' data-width='500'></div>");
-	</script>
   </div>
   <div class="col-md-6">
     <div class="well"><%= @location.description %></div>
@@ -224,7 +221,10 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 
-
+  <script>
+    document.write("<div class='fb-comments' data-href='" + window.location.href + "' data-num-posts='2' data-width='500'></div>");
+  </script>
+  
 <script type="text/javascript">
 window.hotspot.useCurrentLocation = false;
 window.hotspot.initialize();
