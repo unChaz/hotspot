@@ -149,19 +149,25 @@
   <% end %>
 </div>
 
-<% @user_uploaded_images.each do |photo| %>
-  <%= image_tag photo.image.url(:medium) %>
-<% end %>
+<h3>User Uploaded Images</h3>
+<div class="galleria">
+  <% @user_uploaded_images.each do |photo| %>
+    <img src="<%= photo.image.url(:medium) %>"></img>
+  <% end %>
+</div>
 
+<div class="well" style="width:300px;margin:auto;margin-top:15px;margin-bottom:15px;">
+<h4 class="lead">Upload your own!</h4>
 <%= form_for(@new_image) do |f| %>
 
   <%= f.text_field :location_id, :value => @location.id, :class => "hidden"  %>
   <%= f.file_field :image %>
+  <br>
   <div class="actions">
-    <%= f.submit 'Add Photo', :class => 'btn btn-success' %>
+    <%= f.submit 'Upload', :class => 'btn btn-success' %>
   </div>
 <% end %>
-
+</div>
 
 <% unless @location.image1.blank? %>
   <div class="modal fade" id="image1Modal" tabindex="-1" role="dialog" aria-labelledby="image1Modal" aria-hidden="true">
@@ -211,6 +217,7 @@
   </div>
 <% end %>
 <div id="fb-root"></div>
+
 <script>
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -232,6 +239,8 @@ function loadScript() {
   window.hotspot.addMarkerIconToMap(<%=@location.lat%>, <%=@location.long%>);
   window.hotspot.setCenter(<%=@location.lat%>, <%=@location.long%>);
   window.hotspot.map.setZoom(15);
+  Galleria.loadTheme("<%= ActionController::Base.helpers.asset_path("assets/galleria/themes/classic/galleria.classic.min.js") %>");
+  Galleria.run('.galleria');
 }
 window.onload = loadScript;
 </script>

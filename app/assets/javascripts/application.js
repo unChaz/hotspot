@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+//= require galleria/galleria
 
 var hotspot = window.hotspot = {};
 hotspot.openInfoWindows = [];

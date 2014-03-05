@@ -29,5 +29,6 @@ Hotspot::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-
+  config.serve_static_assets = true
+  config.assets.digest = false
 end
