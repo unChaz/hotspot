@@ -10,6 +10,13 @@ class LocationsController < ApplicationController
   # GET /locations/1
   # GET /locations/1.json
   def show
+    @new_rating = Rating.new
+    @rating = @location.get_rating
+    if (current_user)
+      @has_rated = @location.has_rated(current_user.id)
+    else
+      @has_rated = false
+    end
     @owner = User.find(@location.owner)
     @user_uploaded_images = Photo.find(:all, :conditions => { :denied => false, :approved => true, :location_id => @location.id})
     @new_image = Photo.new

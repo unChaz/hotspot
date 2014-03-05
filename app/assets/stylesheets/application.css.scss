@@ -93,3 +93,10 @@ img {
     display: table;
     margin: 0 auto;
 }
+
+#rating-image {
+  width:100px;
+  height:32px;
+  background-image:url("/assets/pepper.png");
+  background-repeat:repeat-x;
+}

@@ -1,5 +1,7 @@
 Hotspot::Application.routes.draw do
 
+  resources :ratings
+
   resources :photos
 
   resources :locations
