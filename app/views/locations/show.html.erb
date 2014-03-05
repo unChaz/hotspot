@@ -176,15 +176,17 @@
     <% end %>
   </div>
 
-  <h3>User Uploaded Images</h3>
-  <div class="galleria">
-    <% @user_uploaded_images.each do |photo| %>
-      <img src="<%= photo.image.url(:medium) %>"></img>
-    <% end %>
-  </div>
+  <% if @has_user_uploaded_images %>
+    <h3>User Uploaded Images</h3>
+    <div class="galleria">
+      <% @user_uploaded_images.each do |photo| %>
+        <img src="<%= photo.image.url(:medium) %>"></img>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="well" style="width:300px;margin:auto;margin-top:15px;margin-bottom:15px;">
-  <h4 class="lead">Upload your own!</h4>
+  <h4 class="lead">Upload your own images!</h4>
   <%= form_for(@new_image) do |f| %>
 
     <%= f.text_field :location_id, :value => @location.id, :class => "hidden"  %>

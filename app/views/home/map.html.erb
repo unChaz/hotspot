@@ -3,6 +3,33 @@
 </div>
 
 <script type="text/javascript">
+jQuery('input[name=search]').click(function() {
+  var geocoder = new google.maps.Geocoder(); 
+    geocoder.geocode({
+        address : jQuery('input[name=address]').val(), 
+        region: 'no' 
+      },
+        function(results, status) {
+          if (status.toLowerCase() == 'ok') {
+          // Get center
+          var coords = new google.maps.LatLng(
+            results[0]['geometry']['location'].lat(),
+            results[0]['geometry']['location'].lng()
+          );
+
+          window.hotspot.map.setCenter(coords);
+          window.hotspot.map.setZoom(12);
+          }
+      }
+    );
+});
+
+$('#address-input').keypress(function(e) {
+    if(e.which == 13) {
+      $('#address-search-button').click();
+    }
+});
+
 window.hotspot.useCurrentLocation = true;
 window.hotspot.initialize();
 function loadScript() {

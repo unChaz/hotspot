@@ -19,6 +19,7 @@ class LocationsController < ApplicationController
     end
     @owner = User.find(@location.owner)
     @user_uploaded_images = Photo.find(:all, :conditions => { :denied => false, :approved => true, :location_id => @location.id})
+    @has_user_uploaded_images = @user_uploaded_images.length > 0
     @new_image = Photo.new
   end
 

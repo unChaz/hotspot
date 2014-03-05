@@ -13,7 +13,6 @@
   <body>
   <div class="container">
     <%= render 'layouts/navigation' %>
-
     <div class="row">
       <div class="col-md-3"><a class="title-link" href="/"><%= image_tag "logo.jpg" %></a></div>
       <div class="col-md-6 alert-box"><%= render 'layouts/messages' %></div>
@@ -41,9 +40,9 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form class="navbar-form navbar-right" role="search" onsubmit="return false">
               <div class="form-group">
-                <input type="text" id="address-input" class="form-control" type= placeholder="Enter an address">
+                <input type="text" id="address-input" class="form-control" name="address" placeholder="Find an address">
               </div>
-              <button id="address-search-button" type="submit" class="btn btn-default">Submit</button>
+              <input type="button" id="address-search-button" class="btn btn-default" name="search" value="Go"></input>
             </form>
           </div><!-- /.navbar-collapse -->
         <% end %>

@@ -125,7 +125,7 @@ hotspot.initialize = function(lat, lng){
   }
   var mapOptions = {
     center: new google.maps.LatLng(window.latitude || 33.57343, window.longitude || -85.09874000000001),
-    zoom: 18
+    zoom: 12
   };
   window.hotspot.map = new google.maps.Map(document.getElementById("map-canvas"),
     mapOptions); 
