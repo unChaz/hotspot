@@ -7,6 +7,9 @@ class AccessRequestsController < ApplicationController
   end
   
   def approve
+    if !user_admin?
+      redirect_to root_url, :alert => "You must be a content manager to do that."
+    end
     request = AccessRequest.find(params[:id])
     user = User.find(request.user)
     user.role = 1
@@ -35,6 +38,9 @@ class AccessRequestsController < ApplicationController
   # PATCH/PUT /access_requests/1
   # PATCH/PUT /access_requests/1.json
   def update
+    if !user_admin?
+      redirect_to root_url, :alert => "You must be a content manager to do that."
+    end
     respond_to do |format|
       if @access_request.update(access_request_params)
         format.html { redirect_to @access_request, notice: 'Access request was successfully updated.' }
@@ -49,6 +55,9 @@ class AccessRequestsController < ApplicationController
   # DELETE /access_requests/1
   # DELETE /access_requests/1.json
   def destroy
+    if !user_admin?
+      redirect_to root_url, :alert => "You must be a content manager to do that."
+    end
     @access_request.destroy
     user = User.find(@access_request.user)
     UserMailer.deny_email(user).deliver
