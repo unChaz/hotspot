@@ -37,6 +37,13 @@ group :development do
   gem 'rails_layout'
 end
 
+group :development, :test do
+    gem 'rspec'
+    gem 'rspec-rails'
+    gem 'autotest'
+    gem 'autotest-standalone'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
