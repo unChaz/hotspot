@@ -6,15 +6,21 @@ Point of Interest Locator Web Application
 Getting Started
 ===============
 
-###Add a line to your /etc/hosts file so facebook login will work:###
+Install ImageMagick:
 
-127.0.0.1 hotspot.com
+http://www.imagemagick.org/script/download.php
 
 ###Then:###
 bundle install
 
-rake db:migrate
+> rake db:migrate
 
-rails s
+> rails s
 
 Go to localhost:3000
+
+### Tests: ###
+
+Just run:
+
+> rake
