@@ -42,7 +42,6 @@ group :development, :test do
     gem 'rspec-rails'
     gem 'autotest'
     gem 'autotest-standalone'
-    gem 'sqlite3'
 end
 
 # Use ActiveModel has_secure_password
