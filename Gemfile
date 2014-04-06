@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -35,6 +35,13 @@ gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 group :development do
   gem 'rails_layout'
+end
+
+group :development, :test do
+    gem 'rspec'
+    gem 'rspec-rails'
+    gem 'autotest'
+    gem 'autotest-standalone'
 end
 
 # Use ActiveModel has_secure_password
